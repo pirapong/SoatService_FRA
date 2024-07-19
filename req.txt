@@ -10,3 +10,4 @@ sqlparse
 djangorestframework
 markdown
 django-filter
+setuptools
