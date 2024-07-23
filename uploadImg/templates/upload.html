@@ -1,0 +1,18 @@
+<!DOCTYPT html>
+<html>
+<head>
+</head>
+<body>
+
+    <form action="{% url "upload" %}" method="post" enctype="multipart/form-data" >
+        {% csrf_token %}
+
+        <p>
+            {{form.file}}
+        </p>
+        <p> <input type="submit" value="upload" /> </p>
+
+    </form>
+
+</body>
+</html>
