@@ -10,8 +10,8 @@ def fra(request):
     key = request.data['key']
     image = base64.b64decode(base64_string, validate=True)
     file_to_save = "img/" + key + ".jpg"
-    #with open(file_to_save, "wb") as f:
-    #    f.write(image)
+    with open(file_to_save, "wb") as f:
+        f.write(image)
     imgDb = face_recognition.load_image_file('imgDb/img.jpg')
     imgDb_encoding = face_recognition.face_encodings(imgDb)[0]
     imgDv = face_recognition.load_image_file(file_to_save)
