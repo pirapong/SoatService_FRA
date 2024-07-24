@@ -7,6 +7,7 @@ import base64, binascii
 def fra(request):
     # base64_string = open('data.txt', 'r').read()
     base64_string = request.data['base64']
+    print(base64_string)
     key = request.data['key']
     image = base64.b64decode(base64_string, validate=True)
     file_to_save = "img/" + key + ".jpg"
