@@ -21,7 +21,7 @@ def fra(request):
         results = face_recognition.compare_faces([imgDv_encoding], imgDb_encoding,x/100)
         if results[0] == True:
             # print("เปอร์เซนต์ความถูกต้อง %d" % ((x-100) * (-1)))
-            avg = "Accuracy %d %" % ((x-100) * (-1))
+            avg = "Accuracy %d " % ((x-100) * (-1)) + "%"
             break
 
     return avg
