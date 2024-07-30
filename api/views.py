@@ -5,6 +5,9 @@ from .views import *
 import base64
 from PIL import Image
 from io import BytesIO
+import math
+import cv2
+
 
 # from .serializers import ItemSerializer
 # import face_recognition   
@@ -57,3 +60,25 @@ def resize_image_base64(base64_str, new_width, new_height):
     # original_base64 = "your_base64_string_here"
     # resized_base64 = resize_image_base64(original_base64, new_width=100, new_height=100)
     # print(resized_base64)
+
+
+def rotate_image(array, angle):
+    height, width = array.shape[:2]
+    image_center = (width / 2, height / 2)
+   
+    rotation_mat = cv2.getRotationMatrix2D(image_center, angle, 1)
+   
+    radians = math.radians(angle)
+    sin = math.sin(radians)
+    cos = math.cos(radians)
+    bound_w = int((height * abs(sin)) + (width * abs(cos)))
+    bound_h = int((height * abs(cos)) + (width * abs(sin)))
+   
+    rotation_mat[0, 2] += ((bound_w / 2) - image_center[0])
+    rotation_mat[1, 2] += ((bound_h / 2) - image_center[1])
+   
+    rotated_mat = cv2.warpAffine(array, rotation_mat, (bound_w, bound_h))
+    return rotated_mat
+
+img = cv2.imread('imgDb/ba11.jpg',1)
+rotated_image = rotate_image(img, 90)
