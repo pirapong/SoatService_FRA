@@ -24,8 +24,8 @@ import base64
 
 @api_view(['POST'])
 def getFace(request):
-    # results = fra(request)
-    return Response('results')
+    results = fra(request)
+    return Response(results)
     
     
 @api_view(['POST'])
