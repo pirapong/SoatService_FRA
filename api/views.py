@@ -27,8 +27,8 @@ def getFace(request):
     
 @api_view(['POST'])
 def uploadDb(request):
-    img_resize = resize_image_base64(request.data['base64'],1280,1000)
-    base64_string = img_resize
+    #img_resize = resize_image_base64(request.data['base64'],1280,1000)
+    base64_string = request.data['base64']
     key = request.data['key']
     image = base64.b64decode(base64_string, validate=True)
     file_to_save = "imgDb/" + key + ".jpg"
@@ -48,7 +48,7 @@ def resize_image_base64(base64_str, new_width, new_height):
     
     # Encode the resized image back to base64
     buffered = BytesIO()
-    resized_image.save(buffered, format="PNG")
+    #resized_image.save(buffered, format="PNG")
     resized_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
     print(resized_base64)    
     return resized_base64
