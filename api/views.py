@@ -27,7 +27,7 @@ def getFace(request):
     
 @api_view(['POST'])
 def uploadDb(request):
-    img_resize = resize_image_base64(request.data['base64'],1000,1280)
+    img_resize = resize_image_base64(request.data['base64'],1280,1000)
     base64_string = img_resize
     key = request.data['key']
     image = base64.b64decode(base64_string, validate=True)
