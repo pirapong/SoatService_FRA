@@ -3,7 +3,6 @@ Django
 dlib
 face-recognition
 face-recognition-models
-numpy
 opencv-python
 Pillow
 sqlparse
@@ -11,3 +10,4 @@ djangorestframework
 markdown
 django-filter
 setuptools
+numpy==1.26.4
