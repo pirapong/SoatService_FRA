@@ -11,9 +11,11 @@ def fra(request):
     file_to_save = "../img/" + key + ".jpg"
     with open(file_to_save, "wb") as f:
         f.write(image)
-    imgDb = face_recognition.load_image_file('imgDb/' + str(key) + '.jpg')
+    # imgDb = face_recognition.load_image_file('imgDb/' + str(key) + '.jpg')
+    imgDb = face_recognition.load_image_file('imgDb/2.jpg')
     imgDb_encoding = face_recognition.face_encodings(imgDb,model='large',num_jitters=10)[0]
-    imgDv = face_recognition.load_image_file(file_to_save)
+    # imgDv = face_recognition.load_image_file(file_to_save)
+    imgDv = face_recognition.load_image_file('img/2.jpg')
     imgDv_encoding = face_recognition.face_encodings(imgDv,model='large',num_jitters=10)[0]
 
     for x in range(1, 100):
