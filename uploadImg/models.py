@@ -8,7 +8,7 @@ class Student(models.Model):
     #     self.file.delete()
     #     return super(File, self).delete(*args, **kwargs)
     
-    diploma = models.FileField(upload_to='imgDb/', blank=True, null=True)
+    diploma = models.FileField(upload_to='/home/test/SoatService_FRA/media/', blank=True, null=True)
 
     # def delete(self):
     #         images = ProductImage.objects.filter(product=self)

@@ -13,7 +13,7 @@ def upload_file(request):
         # MyModel.objects.delete(file
         # dd = MyModel.objects.delete('img/boy.jpg')
         # dd.save()
-        _delete_file('imgDb/' +str(file))
+        _delete_file('/home/test/SoatService_FRA/media/' +str(file))
         student = Student.objects.create(diploma=file)
         print(student)
         student.save()

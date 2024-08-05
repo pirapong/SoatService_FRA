@@ -34,7 +34,7 @@ def uploadDb(request):
     base64_string = request.data['base64']
     key = request.data['key']
     image = base64.b64decode(base64_string, validate=True)
-    file_to_save = "imgs/" + key + ".jpg"
+    file_to_save = "/home/test/SoatService_FRA/media/imgs/" + key + ".jpg"
     with open(file_to_save, "wb") as f:
         f.write(image)
     

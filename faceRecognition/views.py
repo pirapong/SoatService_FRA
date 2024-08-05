@@ -4,18 +4,21 @@ import face_recognition
 import base64
 
 def fra(request):
-    # base64_string = open('data.txt', 'r').read()
-    base64_string = request.data['base64']
+    base64_string = open('data.txt', 'r').read()
+    ###base64_string = request.data['base64']
     key = request.data['key']
-    image = base64.b64decode(base64_string, validate=True)
-    file_to_save = "../img/" + key + ".jpg"
+    image = base64.b64decode(base64_strinag)
+    #image = base64.decodebytes(base64_string)
+    print(base64_string)
+    file_to_save = "/home/test/SoatService_FRA/media/img/" + str(key) + ".jpg"
     with open(file_to_save, "wb") as f:
+
         f.write(image)
-    # imgDb = face_recognition.load_image_file('imgDb/' + str(key) + '.jpg')
-    imgDb = face_recognition.load_image_file('imgDb/2.jpg')
+    imgDb = face_recognition.load_image_file("/home/test/SoatService_FRA/media/imgDb/" + str(key) + ".jpg")
+#    imgDb = face_recognition.load_image_file('/home/test/SoatService_FRA/media/2.jpg')
     imgDb_encoding = face_recognition.face_encodings(imgDb,model='large',num_jitters=10)[0]
-    # imgDv = face_recognition.load_image_file(file_to_save)
-    imgDv = face_recognition.load_image_file('img/2.jpg')
+    imgDv = face_recognition.load_image_file(file_to_save)
+    #imgDv = face_recognition.load_image_file('/home/test/SoatService_FRA/media/2.jpg')
     imgDv_encoding = face_recognition.face_encodings(imgDv,model='large',num_jitters=10)[0]
 
     for x in range(1, 100):
